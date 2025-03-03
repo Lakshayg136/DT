@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActiveCircle Dashboard</title>
+    <link rel="stylesheet" href="lakshay.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js Library -->
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="unnamed-removebg-preview.png" alt="Logo">
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="🔍 Search">
+        </div>
+
+        <div class="right-section">
+            <a href="calendar.html"> <div class="icon-circle" data-tooltip="Calendar"><i class="fas fa-calendar-alt"></i></div></a>           
+            <div class="icon-circle" data-tooltip="Notifications"><i class="fas fa-bell"></i></div>
+            <div class="icon-circle" data-tooltip="Settings"><i class="fas fa-cog"></i></div>
+            <div class="icon-circle" data-tooltip="Profile"><i class="fas fa-user"></i></div>
+        </div>
+
+        <div class="sidebar">
+            <div class="menu-item" data-tooltip="Home"><i class="fas fa-home"></i></div>
+            <div class="menu-item" data-tooltip="Contacts"><i class="fas fa-address-book"></i></div>
+            <div class="menu-item" data-tooltip="Meetings"><i class="fas fa-handshake"></i></div>
+            <div class="menu-item" data-tooltip="Interactions"><i class="fas fa-comments"></i></div>
+            <div class="menu-item" data-tooltip="Activities"><i class="fas fa-tasks"></i></div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="man.jpg" alt="Lakshay's Picture" class="profile-pic">
+            <h1>Lakshay Gupta</h1>
+            <div class="rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star inactive">★</span>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+
+            <button class="action-btn">
+                <i class="fas fa-phone"></i> Call
+            </button>
+
+            <a href="https://meet.google.com/landing"> 
+                <button class="action-btn">
+                    <i class="fas fa-video"></i> Google Meet
+                </button> 
+                </a>
+
+            <button class="action-btn">
+                <i class="fas fa-comment"></i> Chat
+            </button>
+
+            <button class="action-btn">
+                <i class="fas fa-calendar-times"></i> Block
+            </button>
+        </div>
+
+        <div class="social-links">
+            <a href="https://mail.google.com/"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+        </div>
+
+        <hr>
+
+        <div class="profile-details">
+            <h2 class="section-title">Address:</h2>
+            <p>H.No.136, sector:40, Gurgaon, Haryana, 122001</p>
+            <br>
+            <h2 class="section-title">Occupation:</h2>
+            <p>Software Engineer</p>
+            <br>
+            <h2 class="section-title">Bio:</h2>
+            <p>Tech enthusiast with expertise in AI, web development, and cloud computing.</p>
+            <br>
+        </div>
+
+        <div class="profile-stats">
+            <h2 class="section-title">Interaction Frequency:</h2>
+            <br>
+            <canvas id="interactionChart"></canvas>
+        </div>
+
+        <div class="interaction-history">
+            <h2 class="section-title">History of Interactions:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Mode</th>
+                        <th>Duration</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-02-28</td>
+                        <td>Call</td>
+                        <td>15 min</td>
+                        <td>Discussed project updates.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-25</td>
+                        <td>Meeting</td>
+                        <td>1 hour</td>
+                        <td>Brainstormed new ideas.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-20</td>
+                        <td>Email</td>
+                        <td>-</td>
+                        <td>Shared business proposal.</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-18</td>
+                        <td>Chat</td>
+                        <td>30 min</td>
+                        <td>Casual discussion on trends.</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <!-- See More Button -->
+            <div class="see-more-container">
+                <button class="see-more-btn">See More....</button>
+            </div>
+        </div>
+
+
+        <div class="notes-section">
+            <h2 class="section-title">Notes</h2>
+            <textarea placeholder="Write your notes about Lakshay..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('interactionChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Calls', 'Meetings', 'Chats', 'Emails'],
+                datasets: [{
+                    data: [10, 5, 8, 12],
+                    backgroundColor: ['#0c6392', '#00bcd4', '#007ba7', '#10496c']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .section-title {
+            color: #0c6392;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Circle Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+
+    <div class="calendar-container">
+        <!-- Event Legend (Centered Above the Calendar) -->
+        <div class="event-legend">
+            <span class="legend-item"><span class="legend-circle meeting"></span> Meetings</span>
+            <span class="legend-item"><span class="legend-circle reminder"></span> Reminders</span>
+            <span class="legend-item"><span class="legend-circle task"></span> Tasks</span>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="calendar-header">
+            <span class="prev">&#10094;</span>
+            <h2 id="month-year"></h2>
+            <span class="next">&#10095;</span>
+        </div>
+        <div class="calendar">
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days" id="calendar-days"></div>
+        </div>
+    </div>
+
+    <script src="calendar.js"></script>
+
+</body>
+
+</html>

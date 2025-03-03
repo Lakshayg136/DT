@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Ensures full screen height */
+            margin: 0;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+            position: relative;
+        }
+
+        .tick-box {
+            background: #e6ffe6;
+            padding: 15px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px auto;
+            box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+            position: relative;
+            animation: tickMove 1s ease-out forwards;
+        }
+
+        .tick {
+            font-size: 40px;
+            color: green;
+        }
+
+        h2 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .loader-container {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .track {
+            width: 70%;
+            height: 5px;
+            background: #888;
+            position: absolute;
+            top: 10px;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .train {
+            font-size: 40px;
+            position: absolute;
+            bottom: 5px;
+            left: -50px;
+            animation: moveTrain 2s linear infinite;
+        }
+
+        @keyframes moveTrain {
+            0% {
+                left: -50px;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+    <script>
+        setTimeout(function () {
+            window.location.href = "page1.html";
+        }, 3000); // 5-second delay
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="tick-box">
+            <div class="tick">✔</div>
+        </div>
+        <h2>You have successfully signed up!</h2>
+        <p>Redirecting to the main page...</p>
+        <div class="loader-container">
+            <div class="track"></div>
+            <div class="train">🚃</div> 
+        </div>
+    </div>
+</body>
+
+</html>
